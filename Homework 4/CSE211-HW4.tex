@@ -1,0 +1,165 @@
+\documentclass[a4 paper]{article}
+\usepackage[inner=2.0cm,outer=2.0cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage[ruled]{algorithm2e}
+\usepackage[rgb]{xcolor}
+\usepackage{verbatim}
+\usepackage{subcaption}
+\usepackage{amsgen,amsmath,amstext,amsbsy,amsopn,tikz,amssymb,tkz-linknodes}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true, urlcolor=blue,  linkcolor=blue, citecolor=blue]{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{rotating}
+\usepackage{booktabs}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+
+\newcommand{\homework}[6]{
+   \pagestyle{myheadings}
+   \thispagestyle{plain}
+   \newpage
+   \setcounter{page}{1}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf CSE 211:~Discrete Mathematics \hfill {\small (#2)}} }
+       \vspace{6mm}
+       \hbox to 6.28in { {\Large \hfill #1  \hfill} }
+       \vspace{6mm}
+       \hbox to 6.28in { {\it Instructor: {\rm #3} \hfill Name: {\rm #5} \hfill Student Id: {\rm #6}} \hfill}
+       \hbox to 6.28in { {\it Assistant: #4  \hfill #6}}
+      \vspace{2mm}}
+   }
+   \end{center}
+   \markboth{#5 -- #1}{#5 -- #1}
+   \vspace*{4mm}
+}
+
+\newcommand{\problem}[2]{~\\\fbox{\textbf{Problem #1}}\hfill (#2 points)\newline\newline}
+\newcommand{\subproblem}[1]{~\newline\textbf{(#1)}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\Hy}{\mathcal{H}}
+\newcommand{\VS}{\textrm{VS}}
+\newcommand{\solution}{~\newline\textbf{\textit{(Solution)}} }
+
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bepsilon}{\boldsymbol{\epsilon}}
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\newcommand{\bbeta}{\boldsymbol{\beta}}
+\newcommand{\0}{\mathbf{0}}
+
+
+\begin{document}
+\homework{Homework \#4}{Due: 24/12/19}{Dr. Zafeirakis Zafeirakopoulos}{Gizem S\"ung\"u, Başak Karakaş}{Baran Hasan Bozduman}{171044036}
+\textbf{Course Policy}: Read all the instructions below carefully before you start working on the assignment, and before you make a submission.
+\begin{itemize}
+\item It is not a group homework. Do not share your answers to anyone in any circumstance. Any cheating means at least -100 for both sides. 
+\item Do not take any information from Internet.
+\item No late homework will be accepted. 
+\item For any questions about the homework, send an email to gizemsungu@gtu.edu.tr
+\item Submit your homework into Assignments/Homework4 directory of the CoCalc project CSE211-2019-2020.
+\end{itemize}
+
+\problem{1: Nonhomogeneous Linear Recurrence Relations}{15+15=30}
+Consider the nonhomogeneous linear recurrence relation $a_n$ = 3$a_{n-1}$ + $2^n$ .\\
+\subproblem{a} Show that whether $a_n$ = $-2^{n+1}$ is a solution of the given recurrence relation or not. Show your work step by step.\\
+\solution
+\newline
+$a_{n-1}=-2^n$ for $a_n$ = $-2^{n+1}$ \\
+when we place it in the $a_n = 3a_(n-1) +2^n$ relation\\
+$a_n =3(-2^n) +2^n$ and we get\\
+$a_n = -2^{n+1}$ and it shows the results are same for $a_n$\\
+\subproblem{b} Find the solution with $a_0$ = 1.\\
+\solution
+\newline
+$a_n = 3a_(n-1) +2^n$\\\\
+$r = 3 +a^p$\\\\
+r=3\\\\
+$a_n = c_1(3)^n+ a^p$\\\\
+lets assume A is the our const value\\\\
+$A.2^n =3.A.2^{n-1} +2^n$\\\\
+$2.A = 3.A + 2$\\\\
+$A = -2$\\\\
+$a_n = c_1(3)^n - 2.2^n$\\\\
+$a_0 = 1 = c_1 - 2$\\\\
+so $c_1 = 3$\\\\
+$a_n = 3(3)^n - 2.2^n$\\\\
+
+
+
+
+\problem{2: Linear Recurrence Relations}{35}
+Find all solutions of the recurrence relation $a_n$ = 7$a_{n-1}$ - 16$a_{n-2}$ + 12$a_{n-3}$ + n$4^n$ with $a_0$ = -2, $a_1$ = 0, and $a_2$ = 5.\\
+\solution
+\newline
+$r^3 = 7r^2-16r + 12$\\\\
+$(r-2)^2(r-3) = 0$\\\\
+$r_1=r_2\neq r_3$\\\\
+$2=2\neq3$\\\\
+$a_n = c_12^n + c_22^nn + c_33^n$\\\\
+$a_n = (An B)4^n$\\\\
+$a_{n-1} = (A(n-1) B)4^{n}$\\\\
+$a_{n-2} = (A(n-2) B)4^{n-2}$\\\\
+$a_{n-3} = (A(n-3) B)4^{n-3}$\\\\
+if we put them in the relation and divide them by $4^{n-3}$\\\\
+$(An + B)4^3 = 7(A(n-1) +B)4^2 -16(A(n-2) +B )4 + 12(A()n-3) +n4^3$\\\\
+if we simplify the equation\\\\
+$-4An -20A - 64n + 4B = 0$\\\\
+$4B-20A + (-4A-64)n =0$\\\\
+$A=16 and B =-80$\\\\
+$a_{n}^{p} = (16n - 80)4^n$\\\\
+$a_n = c_12^n + c_22^nn + c_33^n + (16n - 80)4^n$\\\\
+for $a_0$\\\\
+$-2 = c_1 + c_3 -80$\\\\
+for $a_1$\\\\
+$0 = c_12 + c_22 + c_33 + -256$\\\\
+for $a_2$\\\\
+$5 = c_14 + c_28 + c_39 + -768$\\\\
+$c_1= 17 c_2=\frac{39}{2} c_3 = 61$\\\\
+$a_n = 17.2^n +39.2^{n-1}n -61.3^n + (16n + 80)4^n$\\\\
+\newline
+
+
+\problem{3: Linear Homogeneous Recurrence Relations }{20+15 = 35}
+Consider the linear homogeneous recurrence relation $a_n$ = 2$a_{n-1}$ - 2$a_{n-2}$.
+\subproblem{a} Find the characteristic roots of the recurrence relation.\\
+\solution
+\newline
+$r^2= 2r -2$\\\\
+$r^2 -2r +2 = 0$\\\\
+we can fid the roots by using delta which is $b^2 - 4ac$\\\\
+$\Delta =(-2).(-2) -4.1.2 \rightarrow -4$\\\\
+$\frac{2\pm 2\sqrt-1}{2}$\\
+$1\pm i$\\\\
+$a_n = c_1(1+i)^n +c_2(1-i)^n$\\\\
+\subproblem{b} Find the solution of the recurrence relation with $a_0$ = 1 and $a_1$ = 2.\\
+\solution\\
+$a_0=1 = c_1 +c_2$\\\\
+$a_1 = 2 = c_1(1+i) +c_2(1-i)$\\\\
+if we apply first equation to second equation like\\\\
+$1-c_1 =c_2$\\\\
+$c1 +c_1i+1-i-c_1+c_1i$\\\\
+$2c_1i-i+1=2$\\\\
+$c_1= \frac{-i+1}{2}$\\\\
+$1=\frac{1-i}{2}+c_2$\\\\
+$c_2=\frac{ i+1}{2}$\\\\
+so the relation is\\\\
+$a_n = \frac{-i+1}{2}(1+i)^n + \frac{ i+1}{2}(1-i)^n$\\
+
+
+
+\end{document} 
+
+

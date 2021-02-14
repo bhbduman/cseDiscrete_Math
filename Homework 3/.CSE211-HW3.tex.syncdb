@@ -1,0 +1,1 @@
+{"key":"build_command","value":["latexmk","-pdf","-f","-g","-bibtex","-synctex=1","-interaction=nonstopmode","-output-directory=/tmp/1e6a8cddf494dab07386289914909bf7c590c131","CSE211-HW3.tex"]}
